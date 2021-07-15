@@ -1,0 +1,490 @@
+/* *************** */
+/* BASIC SETUP */
+/* *************** */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+body {
+    font-family: 'Titillium Web', sans-serif;
+    text-rendering: optimizeLegibility;
+    background: rgb(0, 18, 29);
+    font-size: 1.6rem;
+}
+h1 {
+    font-size: 4.5rem;
+}
+a:link,
+a:visited {
+    text-decoration: none;
+    color: #fff;
+}
+ul li {
+    list-style: none;
+}
+::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+/* *************** */
+/* REUSABLE */
+/* *************** */
+.row {
+    max-width: 114rem;
+    margin: 0 auto;
+}
+section, header {
+    padding: 8rem 0;
+    text-align: center;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+}
+h2 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    margin-bottom: 3rem;
+    color: rgb(65, 65, 65);
+    text-align: center;
+}
+h2::after {
+    content: "";
+    display: block;
+    width: 9rem;
+    height: .35rem;
+    background: rgba(65, 65, 65, 0.3);
+    margin: auto;
+    margin-top: 1.5rem;
+}
+h3 {
+    color: rgb(65, 65, 65);
+    font-size: 2.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+h4 {
+    color: rgb(65, 65, 65);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 2.5rem;
+}
+.sectionDesc {
+    color: rgb(65, 65, 65);
+    font-size: 1.8rem;
+    width: 60%;
+    margin: auto;
+    line-height: 2.5rem;
+}
+.colBox {
+    padding: 1%;
+    overflow: hidden;
+}
+.colDesc {
+    color: rgb(65, 65, 65);
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    line-height: 2rem;
+}
+.post {
+    font-size: 1.6rem;
+    text-transform: capitalize;
+}
+.btn:link,
+.btn:visited,
+.btn,
+button {
+    background-color: #333;
+    border: none;
+    border-bottom: .3rem solid rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    padding: 1.2rem 3rem;
+    border-radius: .4rem;
+    font-weight: bold;
+    letter-spacing: .1rem;
+    display: inline-block;
+    font-size: 1.3rem;
+    margin-top: 5rem;
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+
+.services h2, .services h3, .services h4, .services p,
+.portfolio h2, .portfolio h3, .portfolio h4, .portfolio p,
+.testimonial h2, .testimonial h3, .testimonial h4, .testimonial p, .testimonial q,
+.connect h2, .connect h3, .connect h4, .connect p
+{
+    color: rgb(235, 235, 235);
+}
+/* *************** */
+/* HEADER SECTION */
+/* *************** */
+header {
+    background: linear-gradient(rgba(135, 80, 156, 0.9), rgba(135, 80, 156, 0.9)),url(bg-images/bg-home.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    height: 95vh;
+    padding: 0;
+    position: relative;
+}
+nav {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    z-index: 1;
+    background: rgb(51, 79, 90);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+}
+.logo {
+    height: 3rem;
+    float: left;
+}
+.mainNav {
+    float: right;
+}
+.mainNav li {
+    display: inline-block;
+    margin-left: 1rem;
+}
+.mainNav li:first-child {
+    margin-left: 0;
+}
+.mainNav li a:link,
+.mainNav li a:visited {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1rem 1.5rem;
+    border-radius: .4rem;
+    transition: .3s ease-in;
+    font-size: 1.3rem;
+    display: inline-block;
+    letter-spacing: .1rem;
+}
+.mainNav li:hover a:link,
+.mainNav li:hover a:visited,
+.mainNav .active {
+    background: #0000005e;
+}
+
+.heading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ddd;
+}
+.btnHeading:link,
+.btnHeading:visited {
+    background-color: #eb7d4b;
+}
+.btnHeading:hover:link,
+.btnHeading:hover:visited {
+    background: #d66e3d;
+}
+.socialOption {
+    color: #ddd;
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: auto;
+}
+.socialButton {
+    text-transform: capitalize;
+    display: inline-block;
+    margin: 0 .5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 2rem;
+    transition: .4s;
+}
+.socialIcon {
+    display: flex;
+    width: 4rem;
+    height: 4rem;
+    overflow: hidden;
+    transition: all .6s cubic-bezier(0.6, 2.46, 0.11, 0.18);;
+}
+.socialIcon i {
+    font-size: 2rem;
+    margin: auto;
+}
+.socialIcon span {
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin: auto;
+    display: none;
+}
+.socialIcon:hover {
+    width: 15rem;
+}
+.socialIcon:hover span {
+    display: block;
+}
+.socialButton:nth-child(1):hover,
+.socialOption .active:nth-child(1) {
+    background: #4267B2;
+}
+.socialButton:nth-child(2):hover,
+.socialOption .active:nth-child(2) {
+    background: #1DA1F2;
+}
+.socialButton:nth-child(3):hover,
+.socialOption .active:nth-child(3) {
+    background: #E1306C;
+}
+.socialButton:nth-child(4):hover,
+.socialOption .active:nth-child(4) {
+    background: #FF0000;
+}
+
+/* *************** */
+/* SERVICE SECTION */
+/* *************** */
+.services {
+    background: linear-gradient(rgba(23, 194, 163, 0.9), rgba(23, 194, 163, 0.9)), url(bg-images/bg-service.jpg);
+    background-position: center center;
+}
+.servicesIcon {
+    height: 12rem;
+    margin-top: 4.5rem;
+    margin-bottom: 3.5rem;
+    transition: linear .3s;
+}
+.servicesIcon:hover {
+    transform: scale(1.2);
+}
+
+/* *************** */
+/* TEAM SECTION */
+/* *************** */
+.team {
+    background: linear-gradient(rgba(231, 241, 248, 0.9),rgba(231, 241, 248, 0.9)), url(bg-images/bg-team.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+}
+.memberInfo {
+    height: 40rem;
+}
+.teamMember {
+    margin: 4rem auto 3rem;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    border: 1.5rem solid rgba(225, 0, 255, 0.2);
+    border-bottom-color: rgba(238, 255, 0, 0.2);
+    border-top-color: rgba(238, 255, 0, 0.2);
+    animation: borderAnim 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+.teamMember img {
+    width: 100%;
+    border-radius: 50%;
+    animation: imgAnimFix 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+@keyframes borderAnim {
+    100% {
+        transform: rotate(180deg);
+    }
+}
+@keyframes imgAnimFix {
+    100% {
+        transform: rotate(-180deg);
+    }
+}
+.team .post {
+    color: #30bae7;
+}
+.socialLink li {
+    display: inline-block;
+    pointer-events: none;
+    margin: 0 .5rem;
+}
+.socialLink i {
+    background: #bdd1df;
+    pointer-events: all;
+    cursor: pointer;
+    font-size: 1.6rem;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    transition: linear .3s;
+    border-radius: 20px;
+}
+.socialLink i:hover {
+    background: rgb(0, 26, 29);
+    width: 6rem;
+}
+.socialLink .active {
+    background: rgb(0, 26, 29);
+}
+
+/* *************** */
+/* SKILLS SECTION */
+/* *************** */
+.skills {
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(bg-images/bg-skill.jpg);
+    background-position: center;
+}
+.skills .colBox {
+    margin-top: 4rem;
+}
+
+/* *************** */
+/* PORTFOLIO SECTION */
+/* *************** */
+.portfolio {
+    background: linear-gradient(rgba(136, 116, 77, 0.9), rgba(255, 221, 153, 0.9)), url(bg-images/bg-portfolio.jpeg);
+    background-attachment: fixed;
+}
+.portfolio .colBox {
+    margin-left: 0;
+}
+.portfolioFilter {
+    margin: 6rem auto 3rem;
+}
+.filter-link {
+    border: none;
+    margin: .5rem;
+    position: relative;
+}
+.filter-link::before,
+.filter-link::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 100%;
+    background: #17c2a4;
+    position: absolute;
+    transition: all .5s;
+}
+.filter-link::before {
+    left: 0;
+    top: 0;
+    border-radius: .4rem 0 0 .4rem;
+}
+.filter-link::after {
+    right: 0;
+    bottom: 0;
+    border-radius: 0 .4rem .4rem 0;
+}
+.filter-link:hover::after,
+.filter-link:hover::before,
+.portfolioFilter .active::before,
+.portfolioFilter .active::after {
+    height: 0;
+}
+.portfolioImage {
+    width: 95%;
+    height: auto;
+    margin: .5rem;
+    transition: .5s;
+}
+.portfolioImage:hover {
+    transform: scale(1.1);
+}
+.btnPortfolio:link,
+.btnPortfolio:visited {
+    background: #17c2a4;
+}
+.btnPortfolio:hover:link,
+.btnPortfolio:hover:visited {
+    background: #16a58b;
+}
+
+/* *************** */
+/* TESTIMONIAL SECTION */
+/* *************** */
+.testimonial {
+    background: linear-gradient(rgba(215, 70, 128, 0.9), rgba(215, 70, 128, 0.9)), url(bg-images/bg-testimonial.jpg);
+}
+.testimonial .colBox {
+    margin-top: 4rem;
+}
+.testimonial .colBox:nth-child(3) {
+    margin-left: 0;
+}
+.clientPhoto {
+    width: 13rem;
+    padding-right: 3rem;
+    padding-bottom: 5rem;
+    height: auto;
+    float: left;
+}
+.clientPhoto img {
+    width: 100%;
+    border-radius: 50%;
+}
+.clientReview {
+    text-align: left;
+}
+.clientReview q {
+    font-style: italic;
+    line-height: 2.5rem;
+}
+.clientReview h3 {
+    margin-top: 2rem;
+}
+.testimonial .post {
+    color: #facd96;
+}
+
+/* *************** */
+/* CONNECT SECTION */
+/* *************** */
+.connect {
+    background: linear-gradient(rgba(60, 83, 153, 0.9), rgba(60, 83, 153, 0.9)), url(bg-images/bg-contact.jpg);
+    background-position: center 30%;
+    background-attachment: fixed;
+}
+.connect form {
+    margin-top: 5rem;
+    width: 70%;
+    margin-left: 15%;
+}
+.connect input[type="text"],
+.connect input[type="email"],
+.connect textarea {
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    width: 100%;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: .5rem;
+    font-size: 1.8rem;
+    color: rgb(235, 235, 235);
+}
+.connect input[type="text"] {
+    text-transform: capitalize;
+}
+.btnSubmit {
+    background: #30bae7;
+}
+.btnSubmit:hover {
+    background: #2399c0;
+}
+
+/* *************** */
+/* FOOTER SECTION */
+/* *************** */
+.footer {
+    background: #344b8e;
+    padding: 3rem;
+    text-align: center;
+    border-top: .1rem solid rgba(255, 255, 255, 0.3);
+}
+.footer li {
+    display: inline-block;
+    margin: 0 2rem;
+    text-transform: capitalize;
+    font-size: 1.8rem;
+}
+.footer li:hover a,
+.footer .active {
+    color: #00baf8;
+}
