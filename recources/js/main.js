@@ -9,6 +9,29 @@ function linkAction(){
 activeIt.forEach(n => n.addEventListener('click', linkAction));
 
 /* *************** */
+/* HAMBURGER ACTIVATE */
+/* *************** */
+const mobileNav = () => {
+    const hamBurger = document.querySelector(".hamBurger");
+    const nav = document.querySelector(".mainNav");
+    // activate mobile nav
+    hamBurger.addEventListener("click", function(){
+        hamBurger.classList.toggle("toggle");
+        nav.classList.toggle("mobileNav-active")
+    });
+    // deactivate mobile nav
+    const navItem = document.querySelectorAll('.navItem');
+    var i;
+    for (i = 0; i < navItem.length; i++) {
+        navItem[i].addEventListener('click',() => {
+        nav.classList.remove("mobileNav-active");
+        hamBurger.classList.remove("toggle");
+        });
+    }
+}
+mobileNav();
+
+/* *************** */
 /* MIXIT UP */
 /* *************** */
 var conf = document.querySelector('.filterItems');

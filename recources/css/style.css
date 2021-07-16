@@ -19,8 +19,7 @@ body {
 h1 {
     font-size: 4.5rem;
 }
-a:link,
-a:visited {
+a:link, a:visited {
     text-decoration: none;
     color: #fff;
 }
@@ -36,6 +35,7 @@ ul li {
 .row {
     max-width: 114rem;
     margin: 0 auto;
+    align-items: center;
 }
 section, header {
     padding: 8rem 0;
@@ -81,8 +81,9 @@ h4 {
     line-height: 2.5rem;
 }
 .colBox {
-    padding: 1%;
+    padding: 1.5%;
     overflow: hidden;
+    margin: 0;
 }
 .colDesc {
     color: rgb(65, 65, 65);
@@ -94,8 +95,7 @@ h4 {
     font-size: 1.6rem;
     text-transform: capitalize;
 }
-.btn:link,
-.btn:visited,
+.btn:link, .btn:visited,
 .btn,
 button {
     background-color: #333;
@@ -109,9 +109,14 @@ button {
     letter-spacing: .1rem;
     display: inline-block;
     font-size: 1.3rem;
-    margin-top: 5rem;
+    margin-top: 5%;
     cursor: pointer;
     transition: all .2s ease-in;
+}
+.btn:hover:link, .btn:hover:visited,
+.btn:hover,
+button {
+    box-shadow: inset 0 5rem rgba(0, 0, 0, 0.15);
 }
 
 .services h2, .services h3, .services h4, .services p,
@@ -121,6 +126,7 @@ button {
 {
     color: rgb(235, 235, 235);
 }
+
 /* *************** */
 /* HEADER SECTION */
 /* *************** */
@@ -130,7 +136,6 @@ header {
     background-attachment: fixed;
     height: 95vh;
     padding: 0;
-    position: relative;
 }
 nav {
     width: 100%;
@@ -140,37 +145,59 @@ nav {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: fixed;
 }
+.navRow {
+    max-width: 114rem;
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
 .logo {
     height: 3rem;
-    float: left;
 }
 .mainNav {
-    float: right;
+    display: flex;
+    width: 67rem;
+    justify-content: space-between;
 }
-.mainNav li {
-    display: inline-block;
-    margin-left: 1rem;
-}
-.mainNav li:first-child {
-    margin-left: 0;
-}
-.mainNav li a:link,
-.mainNav li a:visited {
+.navItem:link, .navItem:visited {
     text-transform: uppercase;
     font-weight: bold;
-    padding: 1rem 1.5rem;
     border-radius: .4rem;
-    transition: .3s ease-in;
     font-size: 1.3rem;
     display: inline-block;
     letter-spacing: .1rem;
 }
-.mainNav li:hover a:link,
-.mainNav li:hover a:visited,
-.mainNav .active {
-    background: #0000005e;
+.navItem:link::before, .navItem:visited::before,
+.navItem:link::after, .navItem:visited::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: .2rem;
+    background: rgb(188, 253, 255);
+    border-radius: 1rem;
+    margin: .4rem 0;
+    transition: linear .3s;
 }
-
+.navItem:hover:link::before, .navItem:hover:visited::before,
+.navItem:hover:link::after, .navItem:hover:visited::after,
+.mainNav .active::before, .mainNav .active::after {
+    width: 100%;
+}
+.hamBurger div {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(226, 226, 226);
+    margin: 5px;
+    transition: 0.3s ease-in;
+}
+.hamBurger {
+    display: none;
+}
+.headingRow {
+    position: relative;
+    height: 100%;
+}
 .heading {
     position: absolute;
     top: 50%;
@@ -178,14 +205,10 @@ nav {
     transform: translate(-50%, -50%);
     text-align: center;
     color: #ddd;
+    width: 100%;
 }
-.btnHeading:link,
-.btnHeading:visited {
+.btnHeading:link, .btnHeading:visited {
     background-color: #eb7d4b;
-}
-.btnHeading:hover:link,
-.btnHeading:hover:visited {
-    background: #d66e3d;
 }
 .socialOption {
     color: #ddd;
@@ -272,8 +295,11 @@ nav {
 .memberInfo {
     height: 40rem;
 }
+.team .row:nth-child(2) {
+    margin-top: 3rem;
+}
 .teamMember {
-    margin: 4rem auto 3rem;
+    margin: 2rem auto;
     width: 20rem;
     height: 20rem;
     border-radius: 50%;
@@ -331,7 +357,7 @@ nav {
     background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(bg-images/bg-skill.jpg);
     background-position: center;
 }
-.skills .colBox {
+.skills .row:nth-child(2) {
     margin-top: 4rem;
 }
 
@@ -342,9 +368,6 @@ nav {
     background: linear-gradient(rgba(136, 116, 77, 0.9), rgba(255, 221, 153, 0.9)), url(bg-images/bg-portfolio.jpeg);
     background-attachment: fixed;
 }
-.portfolio .colBox {
-    margin-left: 0;
-}
 .portfolioFilter {
     margin: 6rem auto 3rem;
 }
@@ -353,8 +376,7 @@ nav {
     margin: .5rem;
     position: relative;
 }
-.filter-link::before,
-.filter-link::after {
+.filter-link::before, .filter-link::after {
     content: "";
     display: block;
     width: 50%;
@@ -373,10 +395,8 @@ nav {
     bottom: 0;
     border-radius: 0 .4rem .4rem 0;
 }
-.filter-link:hover::after,
-.filter-link:hover::before,
-.portfolioFilter .active::before,
-.portfolioFilter .active::after {
+.filter-link:hover::after, .filter-link:hover::before,
+.portfolioFilter .active::before, .portfolioFilter .active::after {
     height: 0;
 }
 .portfolioImage {
@@ -392,10 +412,6 @@ nav {
 .btnPortfolio:visited {
     background: #17c2a4;
 }
-.btnPortfolio:hover:link,
-.btnPortfolio:hover:visited {
-    background: #16a58b;
-}
 
 /* *************** */
 /* TESTIMONIAL SECTION */
@@ -403,11 +419,8 @@ nav {
 .testimonial {
     background: linear-gradient(rgba(215, 70, 128, 0.9), rgba(215, 70, 128, 0.9)), url(bg-images/bg-testimonial.jpg);
 }
-.testimonial .colBox {
-    margin-top: 4rem;
-}
-.testimonial .colBox:nth-child(3) {
-    margin-left: 0;
+.testimonial .row:nth-child(2) {
+    margin-top: 5rem;
 }
 .clientPhoto {
     width: 13rem;
@@ -417,7 +430,7 @@ nav {
     float: left;
 }
 .clientPhoto img {
-    width: 100%;
+    width: 10rem;
     border-radius: 50%;
 }
 .clientReview {
@@ -428,7 +441,7 @@ nav {
     line-height: 2.5rem;
 }
 .clientReview h3 {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 .testimonial .post {
     color: #facd96;
@@ -465,26 +478,33 @@ nav {
 .btnSubmit {
     background: #30bae7;
 }
-.btnSubmit:hover {
-    background: #2399c0;
-}
 
 /* *************** */
 /* FOOTER SECTION */
 /* *************** */
-.footer {
-    background: #344b8e;
-    padding: 3rem;
+footer {
+    background: rgb(51, 79, 90);
+    padding: 2rem;
     text-align: center;
-    border-top: .1rem solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-.footer li {
-    display: inline-block;
-    margin: 0 2rem;
+.footerRow {
+    max-width: 114rem;
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+footer ul {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+footer li {
     text-transform: capitalize;
     font-size: 1.8rem;
 }
-.footer li:hover a,
-.footer .active {
+footer li:hover a,
+footer .active {
     color: #00baf8;
 }
