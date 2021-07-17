@@ -1,6 +1,13 @@
 /* *************** */
 /* LINK ACTIVATION */
 /* *************** */
+setTimeout(function(){
+    $('.loader').fadeToggle();
+}, 1500);
+
+/* *************** */
+/* LINK ACTIVATION */
+/* *************** */
 const activeIt = document.querySelectorAll('.activeIt');
 function linkAction(){
     activeIt.forEach(n => n.classList.remove('active'))
@@ -54,7 +61,9 @@ var form = document.getElementById("connectForm");
         }).then(response => {
             status.value = "submitted!";
             form.reset()
-        }).catch(error => {
+        },setTimeout(response => {
+            status.value = "send message"
+        }, 3000)).catch(error => {
             status.value = "try again!"
         });
     }
