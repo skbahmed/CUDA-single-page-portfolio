@@ -1,9 +1,17 @@
 /* *************** */
-/* LINK ACTIVATION */
+/* LOADER */
 /* *************** */
 setTimeout(function(){
     $('.loader').fadeToggle();
 }, 1500);
+
+/* ------------------- */
+/* ANIMATE ON SCROLL */
+/* ------------------- */
+AOS.init({
+    offset: 120,
+    duration: 1500,
+});
 
 /* *************** */
 /* LINK ACTIVATION */
