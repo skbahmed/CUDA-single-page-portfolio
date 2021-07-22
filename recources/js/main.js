@@ -1,9 +1,9 @@
 /* *************** */
 /* LOADER */
 /* *************** */
-setTimeout(function(){
-    $('.loader').fadeToggle();
-}, 1500);
+$(window).on('load', function () {
+    $('.loader').hide();
+})
 
 /* ------------------- */
 /* ANIMATE ON SCROLL */
