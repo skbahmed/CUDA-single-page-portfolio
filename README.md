@@ -1,4 +1,4 @@
-# CUDA-single-page-portfolio
+# <p align="center"> CUDA | Portfolio </p>
 <br>
 Used : HTML, CSS, BOOTSTRAP, JAVASCRIPT, JQUERY
 <br>
